@@ -1,0 +1,6 @@
+﻿<!DOCTYPE html>
+<html>
+<body style="margin:0;background:#0A2E22;display:flex;align-items:center;justify-content:center;height:100vh;color:#F7F4EC;font-family:sans-serif">
+<p>Placeholder — swap with real interior.jpg</p>
+</body>
+</html>

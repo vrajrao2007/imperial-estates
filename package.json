@@ -1,0 +1,33 @@
+{
+  "name": "imperial-nemesis-u-112",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "test:contrast": "node scripts/contrast-audit.js",
+    "test:ai": "node scripts/test-ai-search.js",
+    "build": "node scripts/contrast-audit.js && tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/leaflet": "^1.9.22",
+    "@vitejs/plugin-react": "^6.1.1",
+    "clsx": "^2.1.1",
+    "gsap": "^3.15.0",
+    "leaflet": "^1.9.4",
+    "lenis": "^1.3.26",
+    "lucide-react": "^1.51.0",
+    "react-router-dom": "^7.18.4",
+    "tailwindcss": "^4.3.3",
+    "zod": "^4.6.5",
+    "zustand": "^5.0.15"
+  }
+}

@@ -1,0 +1,458 @@
+/* ── Estate Design System ─────────────────────────────────────────────
+   Ivory-dominant luxury green theme tokens + Tailwind v4 integration.
+   Color ratio: 60% warm neutrals, 25% deep forest, 10% emerald, 5% gold.
+   Spacing follows an 8px scale. Radii 14-20px. Soft shadows.
+   ─────────────────────────────────────────────────────────────────── */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* ── Tailwind v4 Theme Tokens ─────────────────────────────────────── */
+@theme {
+  /* Surfaces */
+  --color-bg: #F7F4EC;
+  --color-surface: #FFFFFF;
+  --color-surface-warm: #FBF9F3;
+  --color-border: #E4DFD1;
+  --color-forest: #0A2E22;
+  --color-forest-2: #123D2E;
+
+  /* Text */
+  --color-ink: #10201A;
+  --color-muted: #5B6B63;
+  --color-on-forest: #F7F4EC;
+  --color-muted-on-forest: #A9BDB2;
+
+  /* Brand */
+  --color-emerald: #1F6F54;
+  --color-emerald-hover: #185A44;
+  --color-sage: #A8C3B0;
+  --color-gold: #C9A96E;
+  --color-gold-text: #8A6B2F;
+
+  /* Semantic */
+  --color-success: #167080;
+  --color-warning: #8A5A00;
+  --color-error: #B3382C;
+  --color-info: #3A5A78;
+
+  /* Map */
+  --color-map-land: #EFEBDF;
+  --color-map-water: #B8C9D9;
+  --color-map-park: #D4DDD6;
+
+  /* Charts & Compare */
+  --color-chart-ramp-1: #E3EFE8;
+  --color-chart-ramp-2: #A8C3B0;
+  --color-chart-ramp-3: #52967C;
+  --color-chart-ramp-4: #1F6F54;
+  --color-chart-prop-a: #1F6F54;
+  --color-chart-prop-b: #A4532B;
+  --color-chart-prop-c: #3A5A78;
+  --color-winner-bg: #EBF3EE;
+  --color-winner-border: #A8C3B0;
+
+  /* Typography */
+  --font-heading: "Cormorant Garamond", "Georgia", serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+
+  /* Geometry */
+  --radius-card: 16px;
+  --radius-button: 14px;
+  --radius-input: 12px;
+  --radius-chip: 20px;
+}
+
+/* ── Design Tokens (:root) ────────────────────────────────────────── */
+:root {
+  /* Surfaces */
+  --bg: #F7F4EC;            /* page */
+  --surface: #FFFFFF;       /* cards, panels */
+  --surface-warm: #FBF9F3;  /* inset areas, table stripes */
+  --border: #E4DFD1;        /* hairlines, 1px */
+  --forest: #0A2E22;        /* dark sections */
+  --forest-2: #123D2E;      /* raised on dark */
+
+  /* Text */
+  --ink: #10201A;           /* 15.4:1 on ivory */
+  --muted: #5B6B63;         /* 5.1:1 on ivory, 5.6:1 on white */
+  --on-forest: #F7F4EC;     /* 13.4:1 on forest */
+  --muted-on-forest: #A9BDB2; /* 7.4:1 on forest */
+
+  /* Brand */
+  --emerald: #1F6F54;       /* 5.5:1 on ivory */
+  --emerald-hover: #185A44;
+  --sage: #A8C3B0;          /* fills, chips, disabled, never small text on ivory */
+  --gold: #C9A96E;          /* on forest 6.6:1; icons, borders, big text only */
+  --gold-text: #8A6B2F;     /* gold as TEXT on ivory, 4.5:1 */
+
+  /* Semantic (distinct from brand green) */
+  --success: #167080;       /* teal, 5.2:1 */
+  --warning: #8A5A00;       /* 5.4:1 */
+  --error: #B3382C;         /* 5.4:1 */
+  --info: #3A5A78;          /* 6.6:1 */
+
+  /* Map tokens */
+  --map-land: #EFEBDF;      /* warm neutral land */
+  --map-water: #B8C9D9;     /* water soft grey-blue */
+  --map-park: #D4DDD6;      /* parks muted sage at low saturation */
+
+  /* Charts & Compare */
+  --chart-ramp-1: #E3EFE8;
+  --chart-ramp-2: #A8C3B0;
+  --chart-ramp-3: #52967C;
+  --chart-ramp-4: #1F6F54;
+  --chart-prop-a: #1F6F54;  /* Property A emerald */
+  --chart-prop-b: #A4532B;  /* Property B terracotta, 5.0:1 */
+  --chart-prop-c: #3A5A78;  /* Property C slate, 6.6:1 */
+  --winner-bg: #EBF3EE;
+  --winner-border: #A8C3B0;
+
+  /* Shadows (soft and low) */
+  --shadow-sm: 0 2px 8px rgba(10, 46, 34, 0.04);
+  --shadow-card: 0 2px 12px rgba(10, 46, 34, 0.06);
+  --shadow-card-hover: 0 8px 24px rgba(10, 46, 34, 0.09);
+  --shadow-elevated: 0 12px 32px rgba(10, 46, 34, 0.08);
+
+  /* Geometry & Fonts */
+  --radius-card: 16px;
+  --radius-button: 14px;
+  --radius-input: 12px;
+  --radius-chip: 20px;
+  --font-heading: "Cormorant Garamond", "Georgia", serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+
+  /* Compatibility aliases for legacy variable names */
+  --bg-primary: var(--bg);
+  --bg-secondary: var(--surface);
+  --bg-card: var(--surface);
+  --bg-surface: var(--surface-warm);
+  --text-primary: var(--ink);
+  --text-secondary: var(--muted);
+  --border-color: var(--border);
+  --border-subtle: var(--border);
+  --color-forest: var(--forest);
+  --color-forest-light: var(--forest-2);
+  --color-emerald: var(--emerald);
+  --color-emerald-hover: var(--emerald-hover);
+  --color-sage: var(--sage);
+  --color-sage-light: #C4D8CA;
+  --color-ivory: var(--bg);
+  --color-ivory-warm: var(--surface-warm);
+  --color-gold: var(--gold);
+  --color-gold-light: #D4BA87;
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+
+  color-scheme: light;
+}
+
+/* ── Base Styles ──────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 1100px;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* ── Focus states (WCAG) ──────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--emerald);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Standard Button Tokens ───────────────────────────────────────── */
+/* Primary: emerald bg + ivory text */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-button);
+  border: 1px solid var(--emerald);
+  background-color: var(--emerald);
+  color: var(--on-forest);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+.btn-primary:hover {
+  background-color: var(--emerald-hover);
+  border-color: var(--emerald-hover);
+}
+.btn-primary:focus-visible {
+  outline: 2px solid var(--emerald);
+  outline-offset: 2px;
+}
+
+/* Secondary: ivory bg + 1px border + ink text */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-button);
+  border: 1px solid var(--border);
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+.btn-secondary:hover {
+  border-color: var(--emerald);
+  color: var(--emerald);
+}
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--emerald);
+  outline-offset: 2px;
+}
+
+/* On Forest section Primary: ivory bg + forest text */
+.btn-on-forest {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-button);
+  border: 1px solid var(--bg);
+  background-color: var(--bg);
+  color: var(--forest);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+.btn-on-forest:hover {
+  background-color: var(--surface-warm);
+}
+.btn-on-forest:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ── Filter Chips ─────────────────────────────────────────────────── */
+.chip-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: var(--radius-chip);
+  border: 1px solid var(--border);
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+.chip-filter:hover {
+  border-color: var(--emerald);
+}
+.chip-filter:focus-visible {
+  outline: 2px solid var(--emerald);
+  outline-offset: 2px;
+}
+.chip-filter-selected {
+  border-color: var(--emerald);
+  background-color: var(--emerald);
+  color: var(--on-forest);
+}
+
+/* ── Card Specification ───────────────────────────────────────────── */
+.card-estate {
+  border-radius: var(--radius-card);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.card-estate:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+/* ── Map Price Pin Specification ──────────────────────────────────── */
+.map-pin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: var(--radius-chip);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+.map-pin-default {
+  background-color: var(--ink);
+  color: var(--bg);
+}
+.map-pin-hover,
+.map-pin-default:hover {
+  background-color: var(--emerald);
+  color: var(--on-forest);
+}
+.map-pin-selected {
+  background-color: var(--emerald);
+  color: var(--on-forest);
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+  transform: scale(1.08);
+}
+.map-pin-saved {
+  background-color: var(--gold);
+  color: var(--ink);
+}
+.map-cluster {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--forest);
+  color: var(--on-forest);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: var(--shadow-card);
+}
+
+/* ── Utility Classes ──────────────────────────────────────────────── */
+.container-estate {
+  max-width: 1360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.transition-estate {
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Scrollbar Styling ────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface-warm);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sage);
+}
+
+/* ── Skeleton Loading Animation ───────────────────────────────────── */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+.skeleton {
+  background: linear-gradient(90deg, var(--surface-warm) 0%, var(--border) 50%, var(--surface-warm) 100%);
+  background-size: 200% 100%;
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  border-radius: var(--radius-card);
+}
+
+/* ── Cinematic Animation Styles ─────────────────────────────────── */
+.statement {
+  font-family: var(--font-heading), "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(4.5rem, 11vw, 13vw);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  color: var(--on-forest);
+  text-transform: uppercase;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--on-forest);
+  opacity: 0.8;
+}
+
+.word-mask {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.frosted {
+  background: rgba(247, 244, 236, 0.08);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.video-placeholder {
+  background: linear-gradient(135deg, #0A2E22 0%, #0F4030 35%, #1F6F54 65%, #173F2D 100%);
+  background-size: 400% 400%;
+  animation: gradShift 8s ease infinite;
+}
+
+@keyframes gradShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.floating-anim {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+

@@ -1,0 +1,94 @@
+[
+  {
+    "id": "q1",
+    "query": "3 BHK apartment in Banjara Hills under 2 crore",
+    "expected": {
+      "locality": "Banjara Hills",
+      "bhk": [3],
+      "types": ["apartment"],
+      "maxPrice": 20000000
+    }
+  },
+  {
+    "id": "q2",
+    "query": "luxury villa with swimming pool near metro within 15 mins",
+    "expected": {
+      "types": ["villa"],
+      "amenities": ["swimming pool"],
+      "nearMetroMinutes": 15
+    }
+  },
+  {
+    "id": "q3",
+    "query": "flats between 50 lakhs and 1.5 cr in Gachibowli sorted by price low to high",
+    "expected": {
+      "locality": "Gachibowli",
+      "types": ["apartment"],
+      "minPrice": 5000000,
+      "maxPrice": 15000000,
+      "sortBy": "price-asc"
+    }
+  },
+  {
+    "id": "q4",
+    "query": "penthouse in Hitec City with gym and terrace",
+    "expected": {
+      "locality": "Hitec City",
+      "types": ["penthouse"],
+      "amenities": ["gym", "terrace"]
+    }
+  },
+  {
+    "id": "q5",
+    "query": "4 bhk under 3 cr",
+    "expected": {
+      "bhk": [4],
+      "maxPrice": 30000000
+    }
+  },
+  {
+    "id": "q6",
+    "query": "villas in Kokapet with clubhouse and garden",
+    "expected": {
+      "locality": "Kokapet",
+      "types": ["villa"],
+      "amenities": ["clubhouse", "garden"]
+    }
+  },
+  {
+    "id": "q7",
+    "query": "1 BHK flat under 30 lakhs",
+    "expected": {
+      "types": ["apartment"],
+      "bhk": [1],
+      "maxPrice": 3000000
+    }
+  },
+  {
+    "id": "q8",
+    "query": "apartments in Financial District under 2.5 Cr",
+    "expected": {
+      "locality": "Financial District",
+      "types": ["apartment"],
+      "maxPrice": 25000000
+    }
+  },
+  {
+    "id": "q9",
+    "query": "3 BHK near metro <= 10 min in Madhapur",
+    "expected": {
+      "locality": "Madhapur",
+      "bhk": [3],
+      "nearMetroMinutes": 10
+    }
+  },
+  {
+    "id": "q10",
+    "query": "penthouse in Kondapur sorted by newest",
+    "expected": {
+      "locality": "Kondapur",
+      "types": ["penthouse"],
+      "sortBy": "newest"
+    }
+  }
+]
